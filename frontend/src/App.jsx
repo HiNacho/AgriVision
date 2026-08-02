@@ -448,7 +448,7 @@ function App() {
 
       <footer>
         <p>
-          AgriVision Neural Framework &copy; 2026. Powered by PyTorch & FastAPI. Built with <span className="heart-icon">&hearts;</span> for Agricultural Innovation.
+          AgriVision powered by HiNacho &copy; 2026. Built with <span className="heart-icon">&hearts;</span> for Agricultural Innovation.
         </p>
       </footer>
 
