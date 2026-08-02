@@ -227,7 +227,30 @@ function App() {
     <div className="app-container">
       <header>
         <div className="logo-container">
-          <Leaf className="logo-icon" size={32} />
+          <svg className="logo-icon" viewBox="0 0 120 120" width="36" height="36" style={{ filter: 'drop-shadow(0 0 8px rgba(16, 185, 129, 0.4))' }}>
+            <defs>
+              <linearGradient id="logoRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f97316" />
+                <stop offset="50%" stopColor="#eab308" />
+                <stop offset="100%" stopColor="#10b981" />
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="#f5f5f4" stroke="url(#logoRingGrad)" strokeWidth="5" />
+            <path d="M58 28 C46 36 38 46 41 62 C43 78 52 90 60 93 C68 90 77 78 79 62 C81 46 74 36 62 28 Z" fill="none" stroke="#d6d3d1" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d="M49 52 Q53 62 48 73" fill="none" stroke="#0f766e" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M66 38 L60 52 L65 67 L60 83" fill="none" stroke="#0f766e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M75 52 L70 61 L74 72" fill="none" stroke="#0f766e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="49" cy="52" r="3" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="51" cy="62" r="3" fill="#eab308" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="48" cy="73" r="3" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="66" cy="38" r="3" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="60" cy="52" r="3.5" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="65" cy="67" r="3.5" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="60" cy="83" r="3" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="75" cy="52" r="3" fill="#eab308" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="70" cy="61" r="3" fill="#f97316" stroke="#f5f5f4" strokeWidth="0.8" />
+            <circle cx="74" cy="72" r="3" fill="#eab308" stroke="#f5f5f4" strokeWidth="0.8" />
+          </svg>
           <div>
             <h1 className="logo-text">AgriVision</h1>
             <p className="tagline">Neural Crop & Fruit Intelligence</p>
