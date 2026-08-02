@@ -26,6 +26,7 @@ function App() {
   const [loadingText, setLoadingText] = useState('Processing...');
   const [error, setError] = useState(null);
   const [activeHistoryId, setActiveHistoryId] = useState(null);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
   
   const fileInputRef = useRef(null);
 
@@ -147,11 +148,12 @@ function App() {
     }
   };
 
-  const handleClearHistory = async () => {
-    if (!window.confirm('Are you sure you want to clear the entire prediction history?')) {
-      return;
-    }
+  const handleClearHistory = () => {
+    setShowClearConfirm(true);
+  };
 
+  const confirmClearHistory = async () => {
+    setShowClearConfirm(false);
     try {
       const response = await fetch(`${API_BASE_URL}/api/history/clear`, {
         method: 'POST',
@@ -449,6 +451,36 @@ function App() {
           AgriVision Neural Framework &copy; 2026. Powered by PyTorch & FastAPI. Built with <span className="heart-icon">&hearts;</span> for Agricultural Innovation.
         </p>
       </footer>
+
+      {showClearConfirm && (
+        <div className="modal-overlay">
+          <div className="modal-card">
+            <div className="modal-header-section">
+              <div className="modal-icon-container">
+                <Trash2 size={20} />
+              </div>
+              <span className="modal-title-text">Clear Prediction Logs?</span>
+            </div>
+            <p className="modal-body-text">
+              This action will permanently delete all local prediction records and historical image scans from the database. This action cannot be undone.
+            </p>
+            <div className="modal-actions">
+              <button 
+                className="modal-btn modal-btn-cancel" 
+                onClick={() => setShowClearConfirm(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className="modal-btn modal-btn-danger" 
+                onClick={confirmClearHistory}
+              >
+                Yes, Clear Logs
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
