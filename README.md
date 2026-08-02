@@ -2,6 +2,8 @@
 
 A modern, full-stack neural web application designed to classify fruits and crops from images. Powered by a pre-trained **PyTorch ResNet-18 model** and **FastAPI**, featuring a premium glassmorphic dark-mode **React** interface.
 
+🔗 **Live Web Application**: [https://agri-vision-orpin.vercel.app/](https://agri-vision-orpin.vercel.app/)
+
 ---
 
 ## 🛠️ Built With
@@ -35,10 +37,10 @@ Here is the tech stack and tools used to build AgriVision:
 
 ```mermaid
 graph TD
-    A[Frontend: Vite + React] -- "1. Upload Image (POST /api/predict)" --> B[Backend: FastAPI]
-    B -- "2. Preprocess Image (224x224, Normalize)" --> C[PyTorch Model (ResNet-18)]
+    A["Frontend: Vite + React"] -- "1. Upload Image (POST /api/predict)" --> B["Backend: FastAPI"]
+    B -- "2. Preprocess Image (224x224, Normalize)" --> C["PyTorch Model (ResNet-18)"]
     C -- "3. Perform Inference" --> B
-    B -- "4. Save Record" --> D[(SQLite Database)]
+    B -- "4. Save Record" --> D[("SQLite Database")]
     B -- "5. Return JSON (Top 5 + confidence)" --> A
     A -- "Get History (GET /api/history)" --> B
     B -- "Query Records" --> D
