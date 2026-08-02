@@ -16,6 +16,9 @@ import torch
 import torchvision.models as models
 import torchvision.transforms as transforms
 
+# Optimize PyTorch memory/CPU usage for constrained hosting environments (e.g. Render Free Tier)
+torch.set_num_threads(1)
+
 # Define FastAPI app
 app = FastAPI(title="AgriVision Fruit Classifier API")
 
