@@ -31,10 +31,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_PATH = "history.db"
+DB_PATH = os.environ.get("DATABASE_PATH", "history.db")
 
 # ----------------- Database Setup -----------------
 def init_db():
+    # Ensure database folder exists if it's placed in a subdirectory (e.g. persistent volume)
+    db_dir = os.path.dirname(DB_PATH)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
