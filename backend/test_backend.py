@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 from PIL import Image
 
 # Import the FastAPI app from app.py
-from app import app, DB_PATH
+from main import app, DB_PATH
 
 class TestAgriVisionBackend(unittest.TestCase):
     def setUp(self):
